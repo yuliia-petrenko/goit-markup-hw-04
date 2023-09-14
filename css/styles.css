@@ -6,6 +6,7 @@
   --color-logo-but: #4d5ae5;
   --color-hov-foc: #404bbf;
   --color-section: #f4f4fd;
+  --color-border-icon: #8e8f99;
 }
 
 /* Base */
@@ -96,6 +97,7 @@ section {
   gap: 40px;
   align-items: center;
   flex-grow: 1;
+  /* position: absolute; */
 }
 .header-meny-list {
   display: flex;
@@ -106,12 +108,27 @@ section {
   letter-spacing: 0.02em;
   text-decoration: none;
   padding: 24px 0;
+  position: relative;
 }
+
 .header-meny-list:hover {
   color: var(--color-hov-foc);
 }
 .header-meny-list:focus {
   color: var(--color-hov-foc);
+}
+.first-header-link {
+  color: var(--color-hov-foc);
+}
+.first-header-link::after {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 48px;
+  height: 4px;
+  background-color: var(--color-hov-foc);
+  transform: rotate(180deg);
+  top: 90%;
 }
 .content-studio {
   color: var(--color-text);
@@ -129,7 +146,6 @@ section {
   display: flex;
   gap: 40px;
   justify-items: flex-end;
-  flex-direction: row-reverse;
 }
 .adress-info {
   color: var(--color-list);
@@ -157,6 +173,14 @@ section {
   text-transform: capitalize;
   padding: 188px 0;
   margin: 0 auto;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url('../images/people-office-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .hero-slogan {
   font-size: 56px;
@@ -198,16 +222,28 @@ section {
 /* deteils section-2 */
 .adventege-section {
   background-color: var(--color-wite);
-  padding: 120px 0;
 }
 .adventege-list {
   display: flex;
   gap: 24px;
-  margin: 0;
-  padding: 0;
 }
 .adventege-item {
   flex-basis: calc((100% - 3 * 24px) / 4);
+}
+.adventege-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 264px;
+  height: 112px;
+  border: 1px solid var(--color-border-icon);
+  border-radius: 4px;
+  background-color: var(--color-section);
+  margin-bottom: 8px;
+}
+.icon-list {
+  width: 64px;
+  height: 64px;
 }
 .category {
   color: var(--color-text);
