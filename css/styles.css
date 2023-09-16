@@ -5,6 +5,7 @@
   --color-border: #e7e9fc;
   --color-logo-but: #4d5ae5;
   --color-hov-foc: #404bbf;
+  --color-hov-foc-f: #31d0aa;
   --color-section: #f4f4fd;
   --color-border-icon: #8e8f99;
 }
@@ -45,6 +46,7 @@ button {
   font-family: inherit;
   text-transform: capitalize;
 }
+
 /* END Base */
 .visually-hidden {
   position: absolute;
@@ -68,6 +70,8 @@ section {
 }
 .header {
   border-bottom: 1px solid var(--color-border);
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .header-inner {
   display: flex;
@@ -108,7 +112,6 @@ section {
   letter-spacing: 0.02em;
   text-decoration: none;
   padding: 24px 0;
-  position: relative;
 }
 
 .header-meny-list:hover {
@@ -119,6 +122,7 @@ section {
 }
 .first-header-link {
   color: var(--color-hov-foc);
+  position: relative;
 }
 .first-header-link::after {
   display: block;
@@ -129,6 +133,11 @@ section {
   background-color: var(--color-hov-foc);
   transform: rotate(180deg);
   top: 90%;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  border-radius: 2px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .content-studio {
   color: var(--color-text);
@@ -222,6 +231,7 @@ section {
 /* deteils section-2 */
 .adventege-section {
   background-color: var(--color-wite);
+  padding: 120px 0;
 }
 .adventege-list {
   display: flex;
@@ -288,19 +298,17 @@ section {
   background-color: var(--color-wite);
   flex-basis: calc((100% - 72px) / 4);
   border-radius: 0 0 4px 4px;
+  box-shadow: 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 2px 1px rgba(46, 47, 66, 0.08);
 }
-.team-icon {
-  margin-bottom: 32px;
-}
+
 .team-name {
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.4px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  padding-bottom: 32px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 32px 0;
 }
 .team-name-list {
   text-align: center;
@@ -315,7 +323,36 @@ section {
   line-height: 1.5;
   color: var(--color-list);
   letter-spacing: 0.02em;
+  padding-bottom: 8px;
 }
+
+.icon-social {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+.icon-social-item {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-logo-but);
+  border-radius: 50%;
+}
+.icon-social-item:hover {
+  background-color: var(--color-hov-foc);
+}
+.icon-social-item:focus {
+  background-color: var(--color-hov-foc);
+}
+.icon-social-list {
+  display: flex;
+  gap: 36px;
+  fill: var(--color-section);
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+}
+
 /* portfolio section-4 */
 .portfolio-section {
   padding: 120px 0 120px 0;
@@ -366,15 +403,42 @@ section {
   line-height: 1.5;
   letter-spacing: 0.02em;
 }
-
+.portfolio-product {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-overlay {
+  position: absolute;
+  background-color: var(--color-logo-but);
+  color: var(--color-section);
+  inset: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio:hover .portfolio-overlay {
+  transform: translateY(0);
+}
+.overlay-text {
+  padding: 40px 32px 164px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
 /* footer */
 
 .foot-section {
+  display: block;
+  gap: 120px;
   background-color: var(--color-text);
   color: var(--color-section);
   font-family: 'Raleway', sans-serif;
-  padding: 100px 0;
   margin: 0 auto;
+  padding-top: 100px;
+}
+.foot-inner {
+  margin-right: 120px;
 }
 .foot-logo {
   display: inline-block;
@@ -399,4 +463,45 @@ section {
   line-height: 1.5;
   letter-spacing: 0.02em;
   font-family: 'Roboto', sans-serif;
+  padding-bottom: 100px;
+}
+.footer-social-p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 16px;
+  margin-top: 0;
+  color: var(--color-wite);
+}
+
+.footer-social-nav {
+  display: flex;
+  gap: 16px;
+}
+.footer-social-list {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-logo-but);
+  border-radius: 50%;
+}
+.footer-social-list:hover {
+  background-color: var(--color-hov-foc-f);
+}
+.footer-social-list:focus {
+  background-color: var(--color-hov-foc-f);
+}
+.footer-social-item {
+  display: flex;
+  gap: 24px;
+  fill: var(--color-section);
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  margin-bottom: 132px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 0.1);
+}
+.foot-p {
+  display: flex;
 }
